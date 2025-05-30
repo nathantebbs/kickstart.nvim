@@ -712,17 +712,6 @@ require('lazy').setup({
           end
           return 'make install_jsregexp'
         end)(),
-        dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-        },
         opts = {},
       },
       'folke/lazydev.nvim',
@@ -928,8 +917,7 @@ require('lazy').setup({
   -- HTML CSS
   {
     'Jezda1337/nvim-html-css',
-    dependencies = { 'hrsh7th/nvim-cmp', 'nvim-treesitter/nvim-treesitter' }, -- Use this if you're using nvim-cmp
-    -- dependencies = { "saghen/blink.cmp", "nvim-treesitter/nvim-treesitter" }, -- Use this if you're using blink.cmp
+    dependencies = { 'saghen/blink.cmp', 'nvim-treesitter/nvim-treesitter' }, -- Use this if you're using blink.cmp
     opts = {
       enable_on = { -- Example file types
         'html',
