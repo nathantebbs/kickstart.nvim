@@ -1,5 +1,14 @@
 # kickstart.nvim
 
+## README
+
+This neovim configuration is based on kickstart.nvim. For easy installation make I use a symlink in my config directory to where I keep my remote directories. For example:
+
+1. Ensure you are in the directory you want to pull the repo into
+```bash
+$ git clone 
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
