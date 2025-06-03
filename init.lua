@@ -55,9 +55,13 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.tabstop = 8
-vim.o.shiftwidth = 4
-vim.o.expandtab = false
+-- Set TAB defaults
+vim.o.tabstop = 4 -- Number of spaces a <Tab> character shows as
+vim.o.shiftwidth = 4 -- Number of spaces used for autoindent
+vim.o.softtabstop = 4 -- Number of spaces a <Tab> keypress inserts
+vim.o.expandtab = true -- Use spaces instead of tabs
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -410,18 +414,6 @@ require('lazy').setup({
       'saghen/blink.cmp',
     },
     config = function()
-      -- Brief aside: **What is LSP?**
-      --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
-      --
-      -- LSP stands for Language Server Protocol. It's a protocol that helps editors
-      -- and language tooling communicate in a standardized fashion.
-      --
-      -- In general, you have a "server" which is some tool built to understand a particular
-      -- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-      -- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-      -- processes that communicate with some "client" - in this case, Neovim!
-      --
       -- LSP provides Neovim with features like:
       --  - Go to definition
       --  - Find references
@@ -793,6 +785,7 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('gruvbox').setup {
+        contrast = 'hard',
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
