@@ -22,5 +22,5 @@ This is my personal Neovim configuration, forked from [kickstart.nvim](https://g
 Clone and symlink this repo as your Neovim config:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/kickstart.nvim ~/.dotfiles/nvim
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+git clone https://github.com/nathantebbs/nvim-config ~/dotfiles/nvim
+ln -s ~/dotfiles/nvim ~/.config/nvim
