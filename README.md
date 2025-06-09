@@ -24,5 +24,6 @@ Clone and symlink this repo as your Neovim config:
 ```bash
 git clone https://github.com/nathantebbs/nvim-config ~/dotfiles/nvim
 ln -s ~/dotfiles/nvim ~/.config/nvim
+```
 
 For more information on my dotfiles setup checkout my [dotfiles repository](https://github.com/nathantebbs/dotfiles)
