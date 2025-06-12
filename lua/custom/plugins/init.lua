@@ -1,5 +1,9 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
+-- init.lua
 --
--- See the kickstart.nvim README for more information
-return {}
+-- This file just organizes my custom plugins into seperate files. Might put stuff here later idk.
+
+return {
+    require 'custom.plugins.colorscheme',
+    require 'custom.plugins.ui',
+    require 'custom.plugins.code',
+}

@@ -18,6 +18,7 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+vim.o.textwidth = 120
 
 -- Set TAB defaults
 vim.o.tabstop = 4 -- Number of spaces a <Tab> character shows as
@@ -58,6 +59,9 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- NEORG KEYMAPS
+vim.keymap.set('n', '<leader>nn', '<Plug>(neorg.dirman.new-note)')
 
 -- [[ Basic Autocommands ]]
 -- Highlight when yanking (copying) text
@@ -502,24 +506,6 @@ require('lazy').setup({
     },
   },
 
-  -- COLORSCHEME GRUBER DARKER:
-  {
-    'blazkowolf/gruber-darker.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('gruber-darker').setup {
-        bold = false,
-        italic = {
-          comments = false,
-        },
-      }
-
-      -- Load the colorscheme here.
-      vim.cmd.colorscheme 'gruber-darker'
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -549,7 +535,7 @@ require('lazy').setup({
 
     -- [[ Configure Treesitter ]]
     opts = {
-      ensure_installed = { 'bash', 'c', 'cpp', 'css', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cpp', 'css', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -563,84 +549,14 @@ require('lazy').setup({
     },
   },
 
-  -- LUALINE
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      use_icons = true,
-      theme = 'gruber-darker',
-    },
-  },
-
-  -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
-
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
-  --
-  -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
-  -- Or use telescope!
-  -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
-  -- you can continue same window with `<space>sr` which resumes last telescope search
-
-  -- AUTO TAG
-  {
-    'windwp/nvim-ts-autotag',
-  },
-
-  -- HTML CSS
-  {
-    'Jezda1337/nvim-html-css',
-    dependencies = { 'hrsh7th/nvim-cmp', 'nvim-treesitter/nvim-treesitter' }, -- Use this if you're using nvim-cmp
-    -- dependencies = { 'saghen/blink.cmp', 'nvim-treesitter/nvim-treesitter' }, -- Use this if you're using blink.cmp
-    opts = {
-      enable_on = { -- Example file types
-        'html',
-      },
-      handlers = {
-        definition = {
-          bind = 'gd',
-        },
-        hover = {
-          bind = 'K',
-          wrap = true,
-          border = 'none',
-          position = 'cursor',
-        },
-      },
-      documentation = {
-        auto_show = true,
-      },
-      style_sheets = {
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.3/css/bulma.min.css',
-        './index.css', -- `./` refers to the current working directory.
-      },
-    },
-  },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
+  -- CUSTOM PLUGINS:
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
