@@ -8,7 +8,7 @@ This is my personal Neovim configuration, forked from [kickstart.nvim](https://g
 - 💻 **LSP Setup**: Mason + `nvim-lspconfig` for fast, minimal Language Server support
 - 🔎 **Fuzzy Finder**: Telescope with FZF and UI Select extensions
 - 🖋️ **Autocompletion**: [`blink.cmp`](https://github.com/saghen/blink.cmp) with snippet and signature help support
-- 🎨 **Colorscheme**: [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
+- 🎨 **Colorscheme**: [Gruber Darker](https://github.com/blazkowolf/gruber-darker.nvim)
 - 🧼 **Formatter**: [`conform.nvim`](https://github.com/stevearc/conform.nvim) with language-specific fallback logic
 - 🌳 **Syntax Highlighting**: Treesitter with auto-tag and HTML/CSS IntelliSense
 - 🔍 **Keybinding Discoverability**: [`which-key`](https://github.com/folke/which-key.nvim)
