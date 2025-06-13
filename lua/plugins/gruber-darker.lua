@@ -1,9 +1,3 @@
--- colorscheme.lua
---
--- I am currently using the gruber darker colorscheme, this may
--- change in the future, but this file will only contain
--- colorscheme related things.
-
 return {
     {
         'blazkowolf/gruber-darker.nvim',
