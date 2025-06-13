@@ -1,7 +1,3 @@
--- code.lua
---
--- These plugins are all programming/language related. Pretty self explanatory.
-
 return {
     -- HTML CSS
     {
@@ -32,12 +28,5 @@ return {
                 './index.css', -- `./` refers to the current working directory.
             },
         },
-    },
-    {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
     },
 }
